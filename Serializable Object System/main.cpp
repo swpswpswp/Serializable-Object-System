@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "json_value.h"
+
 using namespace std;
 
 void testSerialization() {
@@ -129,8 +130,8 @@ static bool assertParseRoundTrip(const string& json, const string& label) {
     ParseError err;
     unique_ptr<JsonValue> parsed = parse(json, &err);
     if (!parsed) {
-        cout << "[FAIL] " << label << " — 解析失败: pos=" << err.position
-             << " msg=" << err.message << endl;
+        cout << "[FAIL] " << label << " - 解析失败: pos=" << err.position
+             << " msg: " << err.message << endl;
         return false;
     }
     string again = parsed->serialize();
@@ -149,16 +150,16 @@ static bool assertParseFails(const string& json, const string& label) {
     ParseError err;
     unique_ptr<JsonValue> parsed = parse(json, &err);
     if (parsed) {
-        cout << "[FAIL] " << label << " — 期望解析失败，但成功了" << endl;
+        cout << "[FAIL] " << label << " - 期望解析失败，但成功了" << endl;
         return false;
     }
-    cout << "[PASS] " << label << " — 正确拒绝, pos=" << err.position
+    cout << "[PASS] " << label << " - 正确拒绝, pos=" << err.position
          << " msg=" << err.message << endl;
     return true;
 }
 
 void testParsing() {
-    cout << "\n========== 反序列化正向测试（对应序列化 20 用例）==========" << endl;
+    cout << "\n========== 反序列化正向测试(对应序列化 20 用例)==========" << endl;
 
     int pass = 0;
     int total = 0;
@@ -193,7 +194,7 @@ void testParsing() {
 }
 
 void testRoundTripFromMemory() {
-    cout << "\n========== Round-trip 测试（内存树 → JSON → 解析 → JSON）==========" << endl;
+    cout << "\n========== Round-trip 测试(内存树 -> JSON -> 解析 -> JSON)==========" << endl;
 
     // 构造一个嵌套结构，序列化后解析，再序列化应一致
     JsonObject root;
