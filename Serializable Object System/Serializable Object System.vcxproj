@@ -150,10 +150,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="json_api.h" />
     <ClInclude Include="json_value.h" />
-    <ClInclude Include="json_serialize.h" />
-    <ClInclude Include="json_parse.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

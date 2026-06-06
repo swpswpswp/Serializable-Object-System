@@ -25,16 +25,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClInclude Include="json_api.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="json_value.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="json_serialize.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="json_parse.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

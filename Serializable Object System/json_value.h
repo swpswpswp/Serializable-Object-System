@@ -69,3 +69,17 @@ class JsonNull :public JsonValue
 public:
 	string serialize() const override;
 };
+
+// ========== 反序列化 API（解析 JSON 字符串 → JsonValue 内存树）==========
+
+#include <memory>
+
+// 解析失败时携带的错误信息：position 为出错字符在输入串中的下标（从 0 开始）
+struct ParseError {
+	size_t position = 0;
+	string message;
+};
+
+// 将 JSON 文本解析为 JsonValue 树。
+// 成功：返回非空 unique_ptr；失败：返回 nullptr，若 err 非空则写入错误详情。
+unique_ptr<JsonValue> parse(const string& json, ParseError* err = nullptr);
